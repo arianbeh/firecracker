@@ -96,7 +96,7 @@ fn main() -> ExitCode {
     if let Err(err) = result {
         error!("{err}");
         eprintln!("Error: {err:?}");
-        let exit_code = FcExitCode::from(err) as u8;
+        let exit_code = u8::from(FcExitCode::from(err));
         error!("Firecracker exiting with error. exit_code={exit_code}");
         ExitCode::from(exit_code)
     } else {
